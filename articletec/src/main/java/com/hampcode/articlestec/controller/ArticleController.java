@@ -2,32 +2,39 @@ package com.hampcode.articlestec.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.hampcode.articlestec.common.PageInitPagination;
 import com.hampcode.articlestec.model.Article;
 import com.hampcode.articlestec.repository.ArticleRepository;
+import com.hampcode.articlestec.service.ArticleService;
 
 @Controller
 @RequestMapping("/articles")
 public class ArticleController {
+
+	@Autowired
+	private ArticleService articleService;
 	
 	@Autowired
-	private ArticleRepository articleRepository;
+	private PageInitPagination pageInitPagination;
+	
+	protected static final String ARTICLE_VIEW_PAGE = "articles/allArticles";
+	
 	
 	@GetMapping
-	public String getAllArticles(Model model) {
-		
-		List<Article> articles=new ArrayList<>();
-		//articles=articleRepository.findAll();
-		
-		model.addAttribute("articles",articles);
-		
-		return "allArticles"; //VIEW
+	public ModelAndView getAllArticles(@RequestParam("pageSize") Optional<Integer> pageSize,
+			@RequestParam("page") Optional<Integer>page) {
+		ModelAndView mv = pageInitPagination.initPagination(pageSize, page, ARTICLE_VIEW_PAGE);
+		return mv;
 	}
 	
 }
