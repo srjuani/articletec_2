@@ -28,32 +28,35 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private LoggingAccessDeniedHandler accessDeniedHandler;
 	
-	@Autowired
-	private void configureGlobal(AuthenticationManagerBuilder build) throws Exception{
-		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-	}
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.antMatchers("/","/home/**","/css/**","/scss/**","/img/**","/js/**")
-		.permitAll()
+		http.authorizeRequests().antMatchers("/","/home/**", "/css/**","/demo/**", "/scss/**","/js/**", "/img/**")
+		  .permitAll()
 		.anyRequest()
-		.authenticated()
+		  .authenticated()
 		.and()
-		.formLogin()
-		.loginPage("/login")
+		    .formLogin()
+		        .loginPage("/login")
+		    .permitAll()
 		.and()
 		.logout()
-		.invalidateHttpSession(true)
-		.clearAuthentication(true)
-		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-		.logoutSuccessUrl("/login?logout")
-		.permitAll()
-		.and()
-		.exceptionHandling()
-		.accessDeniedHandler(accessDeniedHandler);
+			.invalidateHttpSession(true)
+	        .clearAuthentication(true)
+	        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+	        .logoutSuccessUrl("/login?logout")
+	        .permitAll()
+	     .and()
+         .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler);
 	}
+
+	
+	@Autowired
+	public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
+		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+
+	}
+	
 	
 	
 }

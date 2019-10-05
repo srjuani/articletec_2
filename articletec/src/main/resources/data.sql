@@ -1,5 +1,4 @@
-INSERT INTO articles(author,category,content,description,title)
-VALUES ('henry','java','algo','algo','spINSERT INTO articles (article_id, created_at, updated_at, author, category, content, description, title) VALUES
+INSERT INTO articles (article_id, created_at, updated_at, author, category, content, description, title) VALUES
   ( 1000, '2018-12-28 00:27:24', '2019-12-28 00:27:24', 'Wikipedia', 'Java', 'Central to the Spring Framework is its inversion of control (IoC) container, which provides a consistent means of configuring and managing Java objects using reflection. The container is responsible for managing object lifecycles of specific objects: creating these objects, calling their initialization methods, and configuring these objects by wiring them together.
 Objects created by the container are also called managed objects or beans. The container can be configured by loading XML (Extensible Markup Language) files or detecting specific Java annotations on configuration classes. These data sources contain the bean definitions that provide the information required to create the beans.
 Objects can be obtained by means of either dependency lookup or dependency injection.[12] Dependency lookup is a pattern where a caller asks the container object for an object with a specific name or of a specific type. Dependency injection is a pattern where the container passes objects by name to other objects, via either constructors, properties, or factory methods.
@@ -21,9 +20,9 @@ On April 19, 2017, React 360 V1.0.0 was released to the public.[13] This allowed
 
 
 
-INSERT INTO  users(enabled,password,user_name) VALUES(true,'$2a$10$sr2ZuTYlZ.LsliI6sv.HqeH39WsA.gz9Fdr.S0CyCBByyPQ8TObvS','hampcode');
-INSERT INTO  users(enabled,password,user_name) VALUES(true,'$2a$10$ZoqMrCUHNN8lE2g1zssyuucNhExlYwN06kM/Jo6vEBhyTQduQ7iCy','usercode');
+INSERT INTO  users(enabled,user_password,user_name) VALUES(true,'$2a$10$sr2ZuTYlZ.LsliI6sv.HqeH39WsA.gz9Fdr.S0CyCBByyPQ8TObvS','hampcode');
+INSERT INTO  users(enabled,user_password,user_name) VALUES(true,'$2a$10$ZoqMrCUHNN8lE2g1zssyuucNhExlYwN06kM/Jo6vEBhyTQduQ7iCy','usercode');
 
 
 INSERT INTO authorities(authority,user_id) VALUES('ROLE_ADMIN',1);
-INSERT INTO authorities(authority,user_id) VALUES('ROLE_USER',2);ring');
+INSERT INTO authorities(authority,user_id) VALUES('ROLE_USER',2);
