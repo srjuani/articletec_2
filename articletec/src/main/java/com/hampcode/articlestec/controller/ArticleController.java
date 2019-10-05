@@ -23,7 +23,7 @@ public class ArticleController {
 	public String getAllArticles(Model model) {
 		
 		List<Article> articles=new ArrayList<>();
-		articles=articleRepository.findAll();
+		//articles=articleRepository.findAll();
 		
 		model.addAttribute("articles",articles);
 		
