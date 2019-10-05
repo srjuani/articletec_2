@@ -1,0 +1,3 @@
+protected static final String INDEX_VIEW = "index"; // articles with pagination
+
+	protected static final String ARTICLE_VIEW = "articles/showArticle"; // view template for single article

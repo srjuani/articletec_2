@@ -1,0 +1,7 @@
+protected static final String ARTICLE_VIEW = "articles/showArticle"; // view template for single article
+	protected static final String ARTICLE_ADD_FORM_VIEW = "articles/newArticle"; // form for new article
+	protected static final String ARTICLE_EDIT_FORM_VIEW = "articles/editArticle"; // form for editing an article
+
+	protected static final String ARTICLE_PAGE_VIEW = "articles/allArticles"; // list with pagination
+
+	protected static final String INDEX_VIEW = "index"; // articles with pagination
